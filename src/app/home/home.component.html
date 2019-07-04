@@ -1,0 +1,38 @@
+<div class="row ">
+    <div class="col-md text-center">
+        <!-- Interpolation - Data binding -->
+        <h2>{{message|uppercase}}</h2>
+        <p>{{'This is updated content'|titlecase|reverse}}</p>
+    </div>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <table class="table table-bordered table-sm table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>No</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Mfg date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Dynamically generate the data rows -->
+                <ng-container *ngFor="let p of products; index as i">
+                    <tr *ngIf="p.price>100">
+                        <td>{{i+1}}</td>
+                        <td [ngStyle]="{'color':colorName}">
+                            {{p.name|lowercase}}
+                            <span class="badge" [ngClass]="{'badge-success':p.price<130, 'badge-danger':p.price>=130}">new</span>
+                        </td>
+                        <td>{{p.price|currency:'INR':false}} </td>
+                        <td>{{p.quantity|number:'.2-3'}}</td>
+                        <td>{{p.mfgDate|date:'MM-dd-yyyy'}}</td>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
+    </div>
+</div>

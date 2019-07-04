@@ -1,0 +1,30 @@
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <form [formGroup]="form" class="form">
+            <div class="form-group">
+                <label for="firstName">First name</label>
+                <input type="text" id="firstName" class="form-control" name="firstName" formControlName="firstName" />
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last name</label>
+                <input type="text" id="lastName" class="form-control" name="lastName" formControlName="lastName" />
+            </div>
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" class="form-control" name="age" formControlName="age" />
+            </div>
+            <div class="form-group">
+                <label for="imageUrl">Image Url</label>
+                <input type="text" id="imageUrl" class="form-control" name="imageUrl" formControlName="imageUrl" />
+            </div>
+            <div class="form-group">
+                <label for="profession">Profession</label>
+                <input type="text" id="profession" class="form-control" name="profession"
+                    formControlName="profession" />
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success" name="btnsave">Save</button>
+            </div>
+        </form>
+    </div>
+</div>

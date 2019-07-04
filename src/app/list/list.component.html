@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col-sm text-center">
+        <h2>Celebrities of India</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3 col-lg-3 col-sm-4" *ngFor="let p of persons">
+        <div class="card">
+            <img class="card-img-top" src="{{p.imageUrl|image:'assets/noimage.png'}}" alt="{{p.firstName + ' ' + p.lastName}}">
+            <div class="card-body">
+                <h5 class="card-title">{{p.firstName + " " + p.lastName}}</h5>
+                <p class="card-text">Prefession: {{p.profession}}</p>
+                <a href="#" class="btn btn-primary">More info...</a>
+            </div>
+        </div>
+    </div>
+</div>
