@@ -1,0 +1,28 @@
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <h2>Login</h2>
+        <form class="form" #myForm="ngForm" (submit)="login()">
+            <!-- Event binding -->
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" class="form-control" required name="email" [(ngModel)]="user.username"
+                    #uname="ngModel" />
+                <div [hidden]="uname.valid || uname.untouched">
+                    <div *ngIf="uname.errors && uname.errors.required" class="text-danger">Email cannot be empty</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" class="form-control" name="password" required minlength="8"
+                    [(ngModel)]="user.password" #pwd="ngModel" />
+                <div [hidden]="pwd.valid || pwd.untouched">
+                    <div *ngIf="pwd.errors && pwd.errors.required" class="text-danger">Password cannot be empty</div>
+                    <div *ngIf="pwd.errors && pwd.errors.minlength" class="text-danger">Minimum password length is 8 characters</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success" name="btnLogin">Login</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,7 +1,7 @@
 <div class="row ">
     <div class="col-md text-center">
         <!-- Interpolation - Data binding -->
-        <h2>{{message|uppercase}}</h2>
+        <h2 highlight color="red" size="30">{{message|uppercase}}</h2>
         <p>{{'This is updated content'|titlecase|reverse}}</p>
     </div>
 </div>
@@ -25,7 +25,8 @@
                         <td>{{i+1}}</td>
                         <td [ngStyle]="{'color':colorName}">
                             {{p.name|lowercase}}
-                            <span class="badge" [ngClass]="{'badge-success':p.price<130, 'badge-danger':p.price>=130}">new</span>
+                            <span class="badge"
+                                [ngClass]="{'badge-success':p.price<130, 'badge-danger':p.price>=130}">new</span>
                         </td>
                         <td>{{p.price|currency:'INR':false}} </td>
                         <td>{{p.quantity|number:'.2-3'}}</td>
@@ -34,5 +35,8 @@
                 </ng-container>
             </tbody>
         </table>
+        <button (click)="changeTitle()">Change title</button>
+
+        <about [message]="name"></about>
     </div>
 </div>

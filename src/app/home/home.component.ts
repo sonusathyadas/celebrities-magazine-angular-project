@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  name:string="Sonu";
   private colorName:string="blue";
   private size:number=23;
   private mystyle={
@@ -23,9 +24,14 @@ export class HomeComponent implements OnInit {
 
   constructor() {
       this.message = "Welcome to Home page";
+      console.log("Home constructor called");
    }
 
   ngOnInit() {
+    console.log("Home ngOnInit executed");
   }
 
+  public changeTitle(){
+    this.name="Modified title" + new Date().toTimeString();
+  }
 }

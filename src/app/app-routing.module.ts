@@ -3,11 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ListComponent } from './list/list.component';
 import { AddPersonComponent } from './add-person/add-person.component';
+import { LoginComponent } from './login/login.component';
+import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
     { path:"", component:HomeComponent, pathMatch:"full"}, //http://localhost:4200/
     { path:"persons", component:ListComponent}, //http://localhost:4200/persons
     { path:"persons/new", component:AddPersonComponent},
+    { path:"login", component:LoginComponent},
+    { path:"about", component:AboutComponent},
     { path:"**", redirectTo:""} //invalid urls (Code : 404)
 ];
 
