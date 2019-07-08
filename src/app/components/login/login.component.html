@@ -1,12 +1,13 @@
 <div class="row justify-content-center">
     <div class="col-md-6">
         <h2>Login</h2>
+        
         <form class="form" #myForm="ngForm" (submit)="login()">
             <!-- Event binding -->
             <div class="form-group">
                 <label for="email">E-mail</label>
                 <input type="email" id="email" class="form-control" required name="email" [(ngModel)]="user.username"
-                    #uname="ngModel" />
+                    #uname="ngModel" (ngModelChange)="dataChanged($event)" />
                 <div [hidden]="uname.valid || uname.untouched">
                     <div *ngIf="uname.errors && uname.errors.required" class="text-danger">Email cannot be empty</div>
                 </div>

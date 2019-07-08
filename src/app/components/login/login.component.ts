@@ -22,4 +22,8 @@ export class LoginComponent implements OnInit {
         console.log(this.user.username);
         console.log(this.user.password);
     }
+
+    dataChanged(ev){
+        console.log("New value:" + ev);
+    }
 }

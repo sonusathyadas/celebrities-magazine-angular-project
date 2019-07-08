@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-md-6">
+
+        <h2>Update celebrity details</h2>
+
+        <div *ngIf="alertStatus.submited" class="alert" 
+            [ngClass]="{'alert-danger':!(alertStatus.success), 'alert-success':alertStatus.success}">
+            {{alertStatus.message}}
+        </div>
+
+        <form [formGroup]="form" class="form" (submit)="save()"> <!-- Event binding -->
+            <input type="hidden" name="id" id="id" formControlName="id"/>
+            <div class="form-group">
+                <label for="firstName">First name</label>
+                <input type="text" id="firstName" class="form-control" name="firstName" formControlName="firstName" />
+                <div [hidden]="firstName.valid || firstName.untouched">
+                    <div *ngIf="firstName.errors && firstName.errors['required']" class="text-danger">First name cannot be empty</div>
+                    <div *ngIf="firstName.errors && firstName.errors['minlength']" class="text-danger">Minimum 3 characters required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last name</label>
+                <input type="text" id="lastName" class="form-control" name="lastName" formControlName="lastName" />
+                <div [hidden]="lastName.valid || lastName.untouched">
+                    <div *ngIf="lastName.errors && lastName.errors['required']" class="text-danger">Last name cannot be empty</div>                    
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" class="form-control" name="age" min="1" max="120" formControlName="age" />
+                <div [hidden]="age.valid || age.untouched">
+                    <div *ngIf="age.errors && age.errors['required']" class="text-danger">Age cannot be empty</div>  
+                    <div *ngIf="age.errors && (age.errors['min'] || age.errors['max'])" class="text-danger">Age must be between 1 and 120</div>                                                  
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="imageUrl">Image Url</label>
+                <input type="text" id="imageUrl" class="form-control" name="imageUrl" formControlName="imageUrl" />
+                <div [hidden]="imageUrl.valid || imageUrl.untouched">
+                    <div *ngIf="imageUrl.errors && imageUrl.errors['required']" class="text-danger">Image Url cannot be empty</div>                    
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="profession">Profession</label>
+                <input type="text" id="profession" class="form-control" name="profession" formControlName="profession" />
+                <div [hidden]="profession.valid || profession.untouched">
+                    <div *ngIf="profession.errors && profession.errors['required']" class="text-danger">Profession cannot be empty</div>                    
+                    <div *ngIf="profession.errors && profession.errors['minlength']" class="text-danger">
+                        Profession must contain minimum {{profession.errors["minlength"].requiredLength}} characters
+                    </div>                    
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success" name="btnsave">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
