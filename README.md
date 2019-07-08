@@ -23,10 +23,14 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ### JSON Server for Http backend
 You need to run the `JSON server` tool to run the backend Http RESTful service.
-Install `json-server` using `npm` 
-    `npm install -g json-server`
+Install `json-server` using `npm`
+
+`npm install -g json-server`
+
 Run the `json-server` with the database content. Use the `json-server-data\persons.json` to serve the data. Run the following command to start the `json-server`.
-    `json-server --watch json-server-data\persons.json`
+
+`json-server --watch json-server-data\persons.json`
+
 ### Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
